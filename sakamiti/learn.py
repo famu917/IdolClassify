@@ -111,6 +111,9 @@ model.compile(optimizer='sgd',
 history = model.fit(X_train, y_train, batch_size=32,
                     epochs=50, verbose=1, validation_data=(X_test, y_test))
 
+#モデルを保存
+model.save("my_model.h5")
+
 # 汎化制度の評価・表示
 score = model.evaluate(X_test, y_test, batch_size=32, verbose=0)
 print('validation loss:{0[0]}\nvalidation accuracy:{0[1]}'.format(score))
